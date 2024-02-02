@@ -22,7 +22,8 @@
               "SCREENSHOT",
               "RUN_FASTPASS",
               "TYPE"
-            ]
+            ],
+            "additionalItems": true
           },
           "url": {
             "type": "string",
