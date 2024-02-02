@@ -19,7 +19,8 @@
               "CLICK",
               "FILL",
               "WAIT_FOR_ELEMENT",
-              "SCREENSHOT"
+              "SCREENSHOT",
+              "RUN_FASTPASS"
             ]
           },
           "url": {
