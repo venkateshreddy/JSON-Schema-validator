@@ -21,7 +21,7 @@
               "WAIT_FOR_ELEMENT",
               "SCREENSHOT",
               "RUN_FASTPASS",
-              "PAGE_TYPE"
+              "TYPE"
             ]
           },
           "url": {
