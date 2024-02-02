@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "action": {
+                "type": "string",
+                "enum": ["LOAD_URL", "ASSERT", "CLICK", "FILL", "WAIT_FOR_ELEMENT", "SCREENSHOT"]
+            },
+            "url": {
+                "type": "string",
+                "minLength": 1
+            },
+            "state": {
+                "type": "string",
+                "enum": ["visible", "hidden", "enable"]
+            },
+            "selector": {
+                "type": "string",
+                "minLength": 1
+            },
+            "nthChild": {
+                "type": "integer"
+            },
+            "timeout": {
+                "type": "integer",
+                "minimum": 0
+            },
+            "text": {
+                "type": "string"
+            },
+            "iFrameSelector": {
+                "type": "string"
+            },
+            "screenshotFileName": {
+                "type": "string"
+            }
+        },
+        "required": [],
+        "if": {
+            "properties": {
+                "action": { "const": "LOAD_URL" }
+            }
+        },
+        "then": {
+            "required": ["url"]
+        },
+        "else": {
+            "if": {
+                "properties": {
+                    "action": { "const": "ASSERT" }
+                }
+            },
+            "then": {
+                "required": ["state", "selector", "timeout"]
+            }
+        }
+    }
+}
