@@ -52,8 +52,7 @@
             "type": "string"
           }
         },
-        "required": ["action"],
-        "additionalProperties": true,
+        "required": [],
         "if": {
           "properties": {
             "action": { "const": "LOAD_URL" }
@@ -70,6 +69,36 @@
           },
           "then": {
             "required": ["state", "selector", "timeout"]
+          }
+        },
+        "else": {
+          "if": {
+            "properties": {
+              "action": { "const": "CLICK" }
+            }
+          },
+          "then": {
+            "required": ["selector"]
+          }
+        },
+        "else": {
+          "if": {
+            "properties": {
+              "action": { "const": "SCREENSHOT" }
+            }
+          },
+          "then": {
+            "required": ["selector", "screenshotFileName", "timeout"]
+          }
+        },
+        "else": {
+          "if": {
+            "properties": {
+              "action": { "const": "RUN_FASTPASS" }
+            }
+          },
+          "then": {
+            "required": ["selector", "screenshotFileName", "timeout"]
           }
         }
       }
