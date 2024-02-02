@@ -95,7 +95,12 @@
                   }
                 },
                 "then": {
-                  "required": ["selector", "screenshotFileName", "timeout"]
+                  "required": ["selector", "screenshotFileName", "timeout"],
+                  "default": {
+                    "selector": "your-selector",
+                    "screenshotFileName": "file name with out extesion",
+                    "timeout": 1000
+                  }
                 },
                 "else": {
                   "if": {
