@@ -22,8 +22,7 @@
               "SCREENSHOT",
               "RUN_FASTPASS",
               "TYPE"
-            ],
-            "additionalItems": true
+            ]
           },
           "url": {
             "type": "string",
@@ -34,8 +33,17 @@
             "enum": ["visible", "hidden", "enable"]
           },
           "selector": {
-            "type": "string",
-            "minLength": 1
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": ["root", "#data-testid1", "#data-testid2", "#data-testid3", "#data-testid4", "#data-testid5", "#data-testid6"],
+                "description": "Data testids"
+              },
+              {
+                "type": "string",
+                "description": "Custom Selector"
+              }
+            ]
           },
           "nthChild": {
             "type": "integer"
