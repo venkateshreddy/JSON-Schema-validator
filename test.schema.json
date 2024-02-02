@@ -20,7 +20,8 @@
               "FILL",
               "WAIT_FOR_ELEMENT",
               "SCREENSHOT",
-              "RUN_FASTPASS"
+              "RUN_FASTPASS",
+              "PAGE_TYPE"
             ]
           },
           "url": {
