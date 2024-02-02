@@ -69,46 +69,46 @@
           },
           "then": {
             "required": ["state", "selector", "timeout"]
-          }
-        },
-        "else": {
-          "if": {
-            "properties": {
-              "action": { "const": "CLICK" }
-            }
           },
-          "then": {
-            "required": ["selector"]
-          }
-        },
-        "else": {
-          "if": {
-            "properties": {
-              "action": { "const": "SCREENSHOT" }
+          "else": {
+            "if": {
+              "properties": {
+                "action": { "const": "CLICK" }
+              }
+            },
+            "then": {
+              "required": ["selector"]
+            },
+            "else": {
+              "if": {
+                "properties": {
+                  "action": { "const": "SCREENSHOT" }
+                }
+              },
+              "then": {
+                "required": ["selector", "screenshotFileName", "timeout"]
+              },
+              "else": {
+                "if": {
+                  "properties": {
+                    "action": { "const": "RUN_FASTPASS" }
+                  }
+                },
+                "then": {
+                  "required": ["selector", "screenshotFileName", "timeout"]
+                },
+                "else": {
+                  "if": {
+                    "properties": {
+                      "action": { "const": "FILL" }
+                    }
+                  },
+                  "then": {
+                    "required": ["selector", "text"]
+                  }
+                }
+              }
             }
-          },
-          "then": {
-            "required": ["selector", "screenshotFileName", "timeout"]
-          }
-        },
-        "else": {
-          "if": {
-            "properties": {
-              "action": { "const": "RUN_FASTPASS" }
-            }
-          },
-          "then": {
-            "required": ["selector", "screenshotFileName", "timeout"]
-          }
-        },
-        "else": {
-          "if": {
-            "properties": {
-              "action": { "const": "FILL" }
-            }
-          },
-          "then": {
-            "required": ["selector", "text"]
           }
         }
       }
