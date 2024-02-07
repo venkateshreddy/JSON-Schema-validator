@@ -24,6 +24,10 @@
               "TYPE"
             ]
           },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
           "url": {
             "type": "string",
             "minLength": 1
@@ -62,14 +66,14 @@
             "type": "string"
           }
         },
-        "required": [],
+        "required": ["description"],
         "if": {
           "properties": {
             "action": { "const": "LOAD_URL" }
           }
         },
         "then": {
-          "required": ["url"]
+          "required": ["url", "description"]
         },
         "else": {
           "if": {
@@ -78,7 +82,7 @@
             }
           },
           "then": {
-            "required": ["state", "selector", "timeout"]
+            "required": ["state", "selector", "timeout", "description"]
           },
           "else": {
             "if": {
@@ -87,7 +91,7 @@
               }
             },
             "then": {
-              "required": ["selector"]
+              "required": ["selector", "description"]
             },
             "else": {
               "if": {
@@ -96,7 +100,7 @@
                 }
               },
               "then": {
-                "required": ["selector", "screenshotFileName", "timeout"]
+                "required": ["selector", "screenshotFileName", "timeout", "description"]
               },
               "else": {
                 "if": {
@@ -105,7 +109,7 @@
                   }
                 },
                 "then": {
-                  "required": ["selector", "screenshotFileName", "timeout"],
+                  "required": ["selector", "screenshotFileName", "timeout", "description"],
                   "default": {
                     "selector": "your-selector",
                     "screenshotFileName": "file name with out extesion",
@@ -119,7 +123,7 @@
                     }
                   },
                   "then": {
-                    "required": ["selector", "text"]
+                    "required": ["selector", "text", "description"]
                   }
                 }
               }
